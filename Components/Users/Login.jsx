@@ -8,7 +8,7 @@ const Login = ({navigation}) => {
   const [error, setError] = useState("");
 
   return (
-    <View>
+    <View style= {styles.container}>
       <View style={styles.emailAndPasswordView}>
         <Text style={styles.emailAndPasswordText}>Email:</Text>
         <TextInput
@@ -54,6 +54,10 @@ const Login = ({navigation}) => {
 export default Login;
 
 const styles = StyleSheet.create({
+  container:{
+    
+  },
+
   emailAndPasswordView: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -82,4 +86,5 @@ const styles = StyleSheet.create({
   RegisterView: {
     alignItems: 'center',
   }
+
 });

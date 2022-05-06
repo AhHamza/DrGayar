@@ -8,6 +8,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from "react-native";
 import Home from "./Pages/Home"
+import Football from "./Pages/Football";
+import Basketball from "./Pages/Basketball";
+import Tennis from "./Pages/Tennis";
 
 
 const NotUsrStck = createNativeStackNavigator();
@@ -30,27 +33,42 @@ function User() {
 
         <NavigationContainer>
             <UserStack.Navigator>
-                <UserStack.Screen name="Home" initialRouteName="Home" component={Home}>
+                <UserStack.Screen name="Home" initialRouteName="Home" component={Home} options={{
+                    headerStyle: { backgroundColor: "#161b22", },
+                    headerTintColor: '#bdc1c6',
+                    headerTitleStyle: { fontWeight: "bold", fontSize: 30, paddingLeft: 50 }
+                }} />
 
-                </UserStack.Screen>
+                <UserStack.Screen name="Football" component={Football} options={{
+                    headerStyle: { backgroundColor: "#161b22", },
+                    headerTintColor: '#bdc1c6',
+                    headerTitleStyle: { fontWeight: "bold", fontSize: 30, paddingLeft: 50 }
+                }} />
+
+                <UserStack.Screen name="Basketball" component={Basketball} options={{
+                    headerStyle: { backgroundColor: "#161b22", },
+                    headerTintColor: '#bdc1c6',
+                    headerTitleStyle: { fontWeight: "bold", fontSize: 30, paddingLeft: 50 }
+                }} />
+
+                <UserStack.Screen name="Tennis" component={Tennis} options={{
+                    headerStyle: { backgroundColor: "#161b22", },
+                    headerTintColor: '#bdc1c6',
+                    headerTitleStyle: { fontWeight: "bold", fontSize: 30, paddingLeft: 50 }
+                }} />
+
             </UserStack.Navigator>
-
-
 
         </NavigationContainer>
 
     )
 }
 
-
-
-
-
 export default function App() {
     useEffect(() => {
-        const unsub = onAuthStateChanged(auth, (user) => {
+        const unsub = onAuthStateChanged(auth, (user) => { //if user is authinticated take it from the anynomous fn. then save it using 'useState'
             setUser(user);
-            setEmail(user.email);
+            // setEmail(user.email);
         }); //if (user) is authinticated set(user) -> doesn't have to register since i am already authinticated, else get register tab
 
 

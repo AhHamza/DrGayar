@@ -37,7 +37,7 @@ function User({user,email}) {
 
         <NavigationContainer>
             <UserStack.Navigator initialRouteName="BottomTab" >
-                <UserStack.Screen name={"BottomTab"} options={{headerShown:false}} > {/*If headerShown:false was removed there would be a header named "BottomTab"*/}
+                <UserStack.Screen name={"BottomTab"} options={{headerShown:false}} >
                     {(props)=><BottomTab{...props} user={user} email={email}/>}
                 </UserStack.Screen>
 

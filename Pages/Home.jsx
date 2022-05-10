@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image,Button } from 'react-native'
 import React from 'react'
-
+import {useEffect} from "react";
 import { TouchableOpacity } from 'react-native-web';
 
 import footballBackground from '../assets/footballBackground.png'
@@ -14,9 +14,12 @@ const BORDER_RADIUS = 16
 
 
 
-export default function Home({ navigation }) {
+export default function Home({ navigation,route }) {
+
+
   return (
     <View style={styles.container}>
+
 
       <Text style={styles.header}> Enter Your Booking Club </Text>
       <View style={styles.cardsContainer}>
@@ -42,6 +45,8 @@ export default function Home({ navigation }) {
     </View>
 
   );
+
+
 }
 
 const styles = StyleSheet.create({

@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image,Button } from 'react-native'
 import React from 'react'
-
+import {useEffect} from "react";
 import { TouchableOpacity } from 'react-native-web';
 import footballBackground from '../assets/footballBackground.png'
 import tennisBackground from '../assets/tennisBackground.png'
 import basketballBackground from '../assets/basketballBackground.png'
+
+import {AuthContext} from "../Components/Authentication/Utils";
+
+
 
 /*constants for styling the cards */
 const CARD_WIDTH = 400
@@ -13,9 +17,20 @@ const BORDER_RADIUS = 16
 
 
 
-export default function Home({ navigation }) {
+export default function Home({ navigation,route }) {
+
+
+  // const {signOut} = React.useContext(AuthContext); //error
+  function signOutUser(){
+    signOut();
+    logout();
+    // no need explicitly to redirect for the sign-in screen
+    // navigation.navigate('SignIn');
+  }
+
   return (
     <View style={styles.container}>
+
 
       <Text style={styles.header}> Enter Your Booking Club </Text>
       <View style={styles.cardsContainer}>
@@ -38,9 +53,19 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
+
+      {/*<Button title="add user to db" onPress ={()=>addUser(user)}/>*/}
+
+
+      <View style={{padding: 30}}>
+        <Button title='Sign out' onPress={signOutUser}/>
+      </View>
+
     </View>
 
   );
+
+
 }
 
 const styles = StyleSheet.create({

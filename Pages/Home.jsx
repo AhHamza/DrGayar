@@ -6,7 +6,7 @@ import footballBackground from '../assets/footballBackground.png'
 import tennisBackground from '../assets/tennisBackground.png'
 import basketballBackground from '../assets/basketballBackground.png'
 
-import {AuthContext} from "../Components/Users/Utils";
+import {AuthContext} from "../Components/Authentication/Utils";
 
 
 
@@ -54,7 +54,7 @@ export default function Home({ navigation,route }) {
         </View>
       </View>
 
-      <Button title="add user to db" onPress ={()=>addUser(user)}/>
+      {/*<Button title="add user to db" onPress ={()=>addUser(user)}/>*/}
 
 
       <View style={{padding: 30}}>

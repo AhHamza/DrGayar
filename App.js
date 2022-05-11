@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
-import Register from "./Components/Users/Register";
-import Login from "./Components/Users/Login";
+import Register from "./Components/Authentication/Register";
+import Login from "./Components/Authentication/Login";
 import { auth } from "./db/Config";
 import { useState, useEffect } from "react";
 import { NavigationContainer } from '@react-navigation/native';

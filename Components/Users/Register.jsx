@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { React, useState } from "react";
-import { register } from "../../db/auth/auth";
+import {getUserUId, register} from "../../db/Auth";
+import {addUser} from "../../db/User";
 
 const Register = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [error, setError] = useState("");
+
+
 
   return (
     <View>
@@ -36,7 +39,7 @@ const Register = ({navigation}) => {
         <Button
           title="Register"
           onPress={() => {
-            navigation.navigate('Sign in');
+            navigation.navigate('Login');
             console.log(email, password);
             register(email, password)
               .then()
@@ -47,7 +50,7 @@ const Register = ({navigation}) => {
       </View>
       <View style={styles.SignInView}>
         <Text>Already have an account?</Text>
-        <Button title="sign in" onPress={() => { navigation.navigate('Sign in') }} />
+        <Button title="sign in" onPress={() => { navigation.navigate('Login') }} />
       </View>
     </View>
   );

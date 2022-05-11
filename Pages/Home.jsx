@@ -6,6 +6,10 @@ import footballBackground from '../assets/footballBackground.png'
 import tennisBackground from '../assets/tennisBackground.png'
 import basketballBackground from '../assets/basketballBackground.png'
 
+import {AuthContext} from "../Components/Users/Utils";
+
+
+
 /*constants for styling the cards */
 const CARD_WIDTH = 400
 const CARD_HEIGHT = 300
@@ -15,6 +19,14 @@ const BORDER_RADIUS = 16
 
 export default function Home({ navigation,route }) {
 
+
+  // const {signOut} = React.useContext(AuthContext); //error
+  function signOutUser(){
+    signOut();
+    logout();
+    // no need explicitly to redirect for the sign-in screen
+    // navigation.navigate('SignIn');
+  }
 
   return (
     <View style={styles.container}>
@@ -41,6 +53,14 @@ export default function Home({ navigation,route }) {
           </TouchableOpacity>
         </View>
       </View>
+
+      <Button title="add user to db" onPress ={()=>addUser(user)}/>
+
+
+      <View style={{padding: 30}}>
+        <Button title='Sign out' onPress={signOutUser}/>
+      </View>
+
     </View>
 
   );

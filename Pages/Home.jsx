@@ -7,7 +7,9 @@ import tennisBackground from '../assets/tennisBackground.png'
 import basketballBackground from '../assets/basketballBackground.png'
 
 import {AuthContext} from "../Components/Authentication/Utils";
+import {logout} from "../db/Auth";
 
+const {signOut} = React.useContext(AuthContext);
 
 
 /*constants for styling the cards */
@@ -18,9 +20,6 @@ const BORDER_RADIUS = 16
 
 
 export default function Home({ navigation,route }) {
-
-
-  // const {signOut} = React.useContext(AuthContext); //error
   function signOutUser(){
     signOut();
     logout();

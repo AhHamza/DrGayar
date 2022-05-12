@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { React, useState } from "react";
-import { login } from "../../db/auth/auth";
+import { login } from "../../db/Auth";
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState("");

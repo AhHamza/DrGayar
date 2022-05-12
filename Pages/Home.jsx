@@ -6,10 +6,8 @@ import footballBackground from '../assets/footballBackground.png'
 import tennisBackground from '../assets/tennisBackground.png'
 import basketballBackground from '../assets/basketballBackground.png'
 
-import {AuthContext} from "../Components/Authentication/Utils";
 import {logout} from "../db/Auth";
 
-const {signOut} = React.useContext(AuthContext);
 
 
 /*constants for styling the cards */
@@ -19,18 +17,13 @@ const BORDER_RADIUS = 16
 
 
 
-export default function Home({ navigation,route }) {
-  function signOutUser(){
-    signOut();
-    logout();
-    // no need explicitly to redirect for the sign-in screen
-    // navigation.navigate('SignIn');
-  }
+function signOutUser(){
+  logout();
+}
 
+export default function Home({ navigation,route }) {
   return (
     <View style={styles.container}>
-
-
       <Text style={styles.header}> Enter Your Booking Club </Text>
       <View style={styles.cardsContainer}>
         <View style={styles.footballStyle}>

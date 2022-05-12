@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { React, useState } from "react";
-import {getUserUId, login} from "../../db/Auth";
-import {addUser} from "../../db/User";
+import { login } from "../../db/auth/auth";
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState("");
@@ -40,8 +39,6 @@ const Login = ({navigation}) => {
             login(email,password)
               .then()
               .catch((e) => setError(e.message));
-
-
           }}
         />
         <Text style={styles.errorText}>{error}</Text>

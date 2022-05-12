@@ -2,11 +2,12 @@ import { StyleSheet, Text, View, Image,Button } from 'react-native'
 import React from 'react'
 import {useEffect} from "react";
 import { TouchableOpacity } from 'react-native-web';
+
 import footballBackground from '../assets/footballBackground.png'
 import tennisBackground from '../assets/tennisBackground.png'
 import basketballBackground from '../assets/basketballBackground.png'
 
-import {AuthContext} from "../Components/Authentication/Utils";
+import {logout} from "../db/Auth";
 
 
 
@@ -17,21 +18,13 @@ const BORDER_RADIUS = 16
 
 
 
+function signOutUser(){
+  logout();
+}
+
 export default function Home({ navigation,route }) {
-
-
-  // const {signOut} = React.useContext(AuthContext); //error
-  function signOutUser(){
-    signOut();
-    logout();
-    // no need explicitly to redirect for the sign-in screen
-    // navigation.navigate('SignIn');
-  }
-
   return (
     <View style={styles.container}>
-
-
       <Text style={styles.header}> Enter Your Booking Club </Text>
       <View style={styles.cardsContainer}>
         <View style={styles.footballStyle}>

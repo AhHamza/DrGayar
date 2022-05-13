@@ -8,7 +8,6 @@ import {
   signInWithCredential,
   FacebookAuthProvider, getAuth,
 } from "firebase/auth";
-import {addUser} from "./User";
 
 const authentication = getAuth(app);
 

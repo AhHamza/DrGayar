@@ -37,7 +37,9 @@ const Login = ({navigation}) => {
           onPress={() => {
             console.log(email, password);
             login(email,password)
-              .then()
+              .then((userCredential)=>{
+
+              })
               .catch((e) => setError(e.message));
           }}
         />

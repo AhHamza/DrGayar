@@ -56,3 +56,5 @@ async function logout() {
 }
 
 export { register, login,logout,isSignedIn,getUserUId,getUserToken };
+
+// add new line

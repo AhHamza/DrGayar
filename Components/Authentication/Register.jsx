@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { React, useState } from "react";
-import {getUserUId, register} from "../../db/Auth";
+import {getUserUId, login, register} from "../../db/Auth";
 import {addUser} from "../../db/User";
 
 const Register = ({navigation}) => {
@@ -39,11 +39,21 @@ const Register = ({navigation}) => {
                 <Button
                     title="Register"
                     onPress={() => {
-                        navigation.navigate('Login');
                         console.log(email, password);
-                        register(email, password)
-                            .then(addUser({id: getUserUId(), email, password})) //ask doc : cannot add user to db
-                            .catch((e) => setError(e.message));
+                        register(email, password).then( ()=>
+                            {
+                                // added a step to log in the user to ensure that there is a user
+                                // this step i didn't make it my my repo because it should be happened in the register method but what we can see that it's not happening
+                                console.log('resister completed');
+                                login(email, password).then(
+                                    () => {
+                                        console.log('login completed');
+                                        getUserUId().then((id) => addUser({id: id, email, password}));
+                                    }
+                                )
+                            }
+                        ).catch((e) => setError(e.message));
+                        navigation.navigate('Login');
                     }}
                 />
                 <Text>{error}</Text>

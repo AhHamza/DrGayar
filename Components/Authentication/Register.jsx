@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { React, useState } from "react";
 import {getUserUId, login, register} from "../../db/Auth";
-import {abdelghanyMethodName} from "../../db/User";
+import {addUserToFirestore} from "../../db/User";
 
 const Register = ({navigation}) => {
     const [email, setEmail] = useState("");
@@ -48,7 +48,7 @@ const Register = ({navigation}) => {
                                 login(email, password).then(
                                     () => {
                                         console.log('login completed');
-                                        getUserUId().then((id) => abdelghanyMethodName({id: id, email, password}));
+                                        getUserUId().then((id) => addUserToFirestore({id: id, email, password}));
                                     }
                                 )
                             }

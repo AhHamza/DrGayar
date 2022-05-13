@@ -13,7 +13,7 @@ import Football from "./Pages/Football";
 import Basketball from "./Pages/Basketball";
 import Tennis from "./Pages/Tennis";
 import Profile from "./Pages/Profile";
-import {addUser} from "./db/User";
+// import {addUser} from "./db/User";
 
 
 const NotUsrStck = createNativeStackNavigator();

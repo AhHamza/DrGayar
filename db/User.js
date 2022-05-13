@@ -6,7 +6,9 @@ const firestoreDB = getFirestore(app);
 
 //doctor abdelghany's Add
 async function addUser(user) {
-     await setDoc(doc(firestoreDB, "users",user.id),  user );
+    // I think this method is not right and instead of using setDoc(collection use setDoc(doc
+    // const docRef = await setDoc(collection(firestoreDB, "users",user.id), { id: user.id });
+    await setDoc(doc(firestoreDB, "users", user.id), user);
 }
 
 
